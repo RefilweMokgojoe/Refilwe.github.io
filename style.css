@@ -1,0 +1,154 @@
+/* Background video */
+#blackhole-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+/* Base content */
+body {
+  margin: 0;
+  padding: 0;
+  color: white;
+  text-align: center;
+  font-family: 'Share Tech Mono', monospace;
+  background: black;
+}
+
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* heading */
+.futuristic {
+  font-size: 2.8rem;
+  color: rgb(70, 70, 70);
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  margin-top: 15vh;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.292), 0 0 10px #ffffffaa, 0 0 20px #ff9900ae;
+  animation: flicker 2s infinite, glitch 3s infinite;
+}
+
+.futuristic::before,
+.futuristic::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  color: rgb(118, 118, 118);
+  clip: rect(0, 0, 0, 0);
+}
+
+.futuristic::before {
+  animation: glitchTop 2.5s infinite linear alternate-reverse;
+  text-shadow: -2px 0 rgba(170, 168, 162, 0.83);
+}
+
+.futuristic::after {
+  animation: glitchBottom 3s infinite linear alternate-reverse;
+  text-shadow: -2px 0 rgb(105, 113, 113);
+}
+
+/* Flicker */
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.4; }
+}
+
+/* Glitch keyframes */
+@keyframes glitchTop {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  10% { clip: rect(10px, 9999px, 40px, 0); transform: translate(-5px, -5px); }
+  20% { clip: rect(85px, 9999px, 140px, 0); transform: translate(5px, -2px); }
+  30% { clip: rect(50px, 9999px, 90px, 0); transform: translate(-3px, 2px); }
+  100% { clip: rect(0, 9999px, 0, 0); }
+}
+
+@keyframes glitchBottom {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  10% { clip: rect(60px, 9999px, 90px, 0); transform: translate(5px, 3px); }
+  20% { clip: rect(30px, 9999px, 70px, 0); transform: translate(-5px, -2px); }
+  30% { clip: rect(100px, 9999px, 140px, 0); transform: translate(3px, 2px); }
+  100% { clip: rect(0, 9999px, 0, 0); }
+}
+
+/* Buttons */
+.btnGroup a {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+  justify-content: end;
+}
+
+.btnGroup a:hover {
+  background: rgba(255, 255, 255, 0.57);
+  background-color: content ,rgb(255, 252, 252);
+  
+}
+ /****************** FOR FOOTER ******************/
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; 
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: rgba(0,0,0,0.6);
+  color: #aaa;
+}
+
+
+/****************************************************************************/
+
+
+/* Initial wave-in *
+@keyframes letterWave {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) rotate(-10deg);
+    text-shadow: none;
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-5px) rotate(5deg);
+    text-shadow: 0 0 10px #00ffe0, 0 0 20px #00ffe0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+    text-shadow: 0 0 15px #00ffe0, 0 0 30px #00ffe0;
+  }
+}
+
+/* Neon pulse *
+@keyframes letterPulse {
+  from {
+    text-shadow: 0 0 10px #00ffe0, 0 0 20px #00ffe0, 0 0 40px #00ffe0;
+    color: white;
+  }
+  to {
+    text-shadow: 0 0 20px #ffffff, 0 0 40px #00ffe0, 0 0 80px #00ffe0;
+    color: #e0ffff;
+  }
+}
+
