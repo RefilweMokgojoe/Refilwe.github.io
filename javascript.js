@@ -13,9 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.body.style.opacity = 0;
                 setTimeout(() => {
                     window.location.href = url;
-                }, 0); // match transition time
+                }, 500); // match transition time
             });
         }
     });
 });
+
  
